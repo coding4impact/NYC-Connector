@@ -136,7 +136,6 @@ $(function() {
         lng: -74.0060,
         zoom: 11
       });
-      console.log(config.TEST);
       displayMarkers(map, 'senior_centers', 'blue');
       displayMarkers(map, 'snap_centers', 'yellow');
       displayMarkers(map, 'soup_kitchens', 'red');
