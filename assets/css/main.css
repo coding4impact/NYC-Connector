@@ -16,7 +16,7 @@ html, body {
      background-color: #e3f2fd;
 }
  #info_jumbotron {
-     background: #000 url("assets/nyc_background4.jpg") no-repeat center bottom;
+     background: #000 url("../assets/nyc_background4.jpg") no-repeat center bottom;
      width: 100%;
      height: ;
      background-size: cover;
