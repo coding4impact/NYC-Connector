@@ -4,7 +4,7 @@ $(function() {
   var clearAllButton = $("#clear_all");
 
   function loadJSONData(path, callback) {
-    $.getJSON(window.location.href + 'json_files/' + path + '.json', function(data) {
+    $.getJSON(window.location.href + '/json_files/' + path + '.json', function(data) {
       callback(data);
     });
   }
@@ -136,6 +136,7 @@ $(function() {
         lng: -74.0060,
         zoom: 11
       });
+      console.log(config.TEST);
       displayMarkers(map, 'senior_centers', 'blue');
       displayMarkers(map, 'snap_centers', 'yellow');
       displayMarkers(map, 'soup_kitchens', 'red');
