@@ -1,0 +1,13 @@
+{
+  "name": "smooth-scroll",
+  "homepage": "https://github.com/GabrielDelepine/smooth-scroll",
+  "version": "1.4.0",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/GabrielDelepine/smooth-scroll.git"
+  },
+  "main": ["./smooth-scroll.js"],
+  "ignore": [
+    "*.min.js"
+  ]
+}
