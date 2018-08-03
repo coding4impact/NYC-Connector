@@ -131,7 +131,7 @@
 					<img class="rounded-circle" src="assets/icons/soupkitchen.gif">
 					<figcaption>
                         <input id="soup_kitchens_checkbox" type="checkbox" /> Soup Kitchens <br />
-                        <img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" alt="Red Marker" />
+                        <img src="https://maps.google.com/mapfiles/ms/icons/red-dot.png" alt="Red Marker" />
 					</figcaption>
 				</div>
 				<div class="">
@@ -199,11 +199,9 @@
 	offset: function(anchor, toggle) {
         var id = $(toggle).attr("href");
         if(id === "#find_resources" || id === "#contact") {
-            console.log("w");
             return 50;
         }
         if(id === "#map") {
-            console.log("m");
            return 75;
         }
     },
