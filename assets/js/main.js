@@ -4,7 +4,7 @@ $(function() {
   var clearAllButton = $("#clear_all");
 
   function loadJSONData(path, callback) {
-    $.getJSON(window.location.href + '/json_files/' + path + '.json', function(data) {
+    $.getJSON(window.location.href+ '/json_files/' + path + '.json', function(data) {
       callback(data);
     });
   }
@@ -145,10 +145,7 @@ $(function() {
       displayMarkers(map, 'clothing_shelters', 'pink');
       zoomMap(map);
       clearFilters(map);
-      
   }
 
-
-
   init();
-  });
+});

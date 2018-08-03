@@ -1,0 +1,68 @@
+html, body {
+     font-family: 'PT Sans', sans-serif;
+     max-width: 100%;
+     overflow-x: hidden;
+}
+ .jumbotron {
+     margin-bottom: 0;
+}
+ .info_window {
+     font-family: Cambria;
+}
+ #footer_jumbotron {
+     background-color: #d3dded;
+}
+ #main_jumbotron {
+     background-color: #e3f2fd;
+}
+ #info_jumbotron {
+     background: #000 url("assets/nyc_background4.jpg") no-repeat center bottom;
+     width: 100%;
+     height: ;
+     background-size: cover;
+     overflow: hidden;
+     position:relative;
+     top:0;
+     left:0;
+     z-index:1;
+}
+ #info_jumbotron:before{
+     content: '';
+     position: absolute;
+     top: 0;
+     right: 0;
+     left: 0;
+     bottom: 0;
+     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+}
+ #main_nav {
+     background-color: #e3f2fd;
+     background-color: white;
+}
+ #map {
+     margin: auto;
+     width: 70%;
+     height: 650px;
+}
+ .list-group-item {
+}
+ #zip {
+     width: 50%;
+     margin: auto;
+}
+ .lead {
+     line-height: 1.4em;
+     letter-spacing: .1em;
+}
+ #images .rounded-circle {
+     height: 115px;
+     width: 115px;
+     border: 2px solid black;
+}
+ .row {
+     text-align: center;
+     margin-left: 12.5%;
+}
+ .row div {
+     margin-left: 2%;
+}
