@@ -76,3 +76,12 @@ html, body {
  .row .icon-group {
      margin: 0 auto;
 }
+.firstHeading {
+     font-weight: bold;
+}
+ul, ol {
+    list-style:none;
+}
+a, a:visited, a:hover {
+    text-decoration: none;
+}
