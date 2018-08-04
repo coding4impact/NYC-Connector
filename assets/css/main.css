@@ -1,5 +1,5 @@
 html, body {
-     font-family: 'PT Sans', sans-serif;
+     font-family: 'Lato', 'PT-Sans', sans-serif;
      max-width: 100%;
      overflow-x: hidden;
 }
@@ -11,9 +11,6 @@ html, body {
 }
  #footer_jumbotron {
      background-color: #d3dded;
-}
- #main_jumbotron {
-     background-color: #e3f2fd;
 }
  #info_jumbotron {
      background: #000 url("../nyc_background4.jpg") no-repeat center bottom;
@@ -35,9 +32,19 @@ html, body {
      bottom: 0;
      background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
 }
+#mission_jumbotron {
+     background-color: #e3f2fd;
+}
  #main_nav {
      background-color: #e3f2fd;
      background-color: white;
+}
+.link:hover, .link:visited {
+     text-decoration: none;
+}
+.link {
+     color: blue;
+     margin-right: 50px;
 }
  #map {
      margin: auto;
