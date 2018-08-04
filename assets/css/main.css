@@ -39,6 +39,9 @@ html, body {
      background-color: #e3f2fd;
      background-color: white;
 }
+.display-4 {
+     font-weight: bold;
+}
 .link:hover, .link:visited {
      text-decoration: none;
 }
