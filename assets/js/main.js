@@ -4,7 +4,7 @@ $(function() {
   var clearAllButton = $("#clear_all");
 
   function loadJSONData(path, callback) {
-    $.getJSON('/json_files/' + path + '.json', function(data) {
+    $.getJSON(window.location.href + 'json_files/' + path + '.json', function(data) {
       callback(data);
     });
   }
@@ -29,6 +29,7 @@ $(function() {
                         '<a href="' + website_url + '"' + '<h4 id="firstHeading" class="firstHeading">' + place['Name'] + '</h4></a><br /><br />' + 
                         '<div id="bodyContent">' + 
                             '<ul>';
+      
       var factype = "";
       switch(type) {
           case "soup_kitchens":
@@ -57,7 +58,7 @@ $(function() {
       content += '<li> Type: <strong>' + factype + '</strong></li>';
       content += '<li> Address: <strong>' + place['Address'] + '</strong></li>';
       
-      if (type === "clothing_charities" || type === "homeless_shelters") {
+      if (type === "clothing_charities" || type === "homeless_shelters" || type === "snap_centers") {
           content += '<li> Phone Number: <strong>' + place['Phone Number'] + '</strong></li>';
       }
       
