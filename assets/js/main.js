@@ -4,7 +4,7 @@ $(function() {
   var clearAllButton = $("#clear_all");
 
   function loadJSONData(path, callback) {
-    $.getJSON(window.location.href+ '/json_files/' + path + '.json', function(data) {
+    $.getJSON('/json_files/' + path + '.json', function(data) {
       callback(data);
     });
   }
@@ -26,7 +26,8 @@ $(function() {
               break;
               
       }
-      var content = '<div id="content" class="bg-light pt-2">'+
+      
+      var content = '<div id="content" class="bg-primary pt-2">'+
             '<div id="siteNotice">'+
             '</div>'+
             '<h4 id="firstHeading" class="firstHeading">' + place['Name'] +'</h4>'+
@@ -57,8 +58,35 @@ $(function() {
     });
   });
   }
+    
+  function displayCheckedItems(map) {
+      $("input:checkbox:checked").each(function(box) {
+        var id = $(this).attr("id");
+        if(id === "soup_kitchens_checkbox") {
+          displayMarkers(map, 'soup_kitchens', 'orange');
+        }
+        if(id === "senior_centers_checkbox") {
+          displayMarkers(map, 'senior_centers', 'red');
+        }
+        if(id === "snap_centers_checkbox") {
+          displayMarkers(map, 'snap_centers', 'green');
+        }
+        if(id === "food_pantries_checkbox") {
+          displayMarkers(map, 'food_pantries', 'yellow');
+        }
+        if(id === "food_scraps_checkbox") {
+          displayMarkers(map, 'food_scraps', 'blue');
+        }
+        if(id === "homeless_shelters_checkbox") {
+            displayMarkers(map, 'homeless_shelters', 'purple');
+        }
+        if(id === "clothing_charities_checkbox") {
+          displayMarkers(map, 'clothing_charities', 'pink');
+        }
+      }); 
+  }
 
-  function zoomMap(map) {
+  function handleSubmit(map) {
     submitButton.click(function() {
       GMaps.geocode({
         address: addressField.val().trim(),
@@ -75,57 +103,7 @@ $(function() {
         }
       });
       map.removeMarkers();
-      $("input:checkbox:checked").each(function(box) {
-        var id = $(this).attr("id");
-        if(id === "soup_kitchens_checkbox") {
-          displayMarkers(map, 'soup_kitchens', 'red');
-        }
-        if(id === "senior_centers_checkbox") {
-          displayMarkers(map, 'senior_centers', 'blue');
-        }
-        if(id === "snap_centers_checkbox") {
-          displayMarkers(map, 'snap_centers', 'yellow');
-        }
-        if(id === "food_pantries_checkbox") {
-          displayMarkers(map, 'food_pantries', 'orange');
-        }
-        if(id === "food_scraps_checkbox") {
-          displayMarkers(map, 'food_scraps', 'green');
-        }
-      });   
-    });
-  }
-
-  function filterCategories(map) {
-    $("input:checkbox").click(function(e) {
-      map.removeMarkers();
-      $("input:checkbox:checked").each(function(box) {
-        var id = $(this).attr("id");
-        if(id === "soup_kitchens_checkbox") {
-          displayMarkers(map, 'soup_kitchens', 'red');
-        }
-        if(id === "senior_centers_checkbox") {
-          displayMarkers(map, 'senior_centers', 'blue');
-        }
-        if(id === "snap_centers_checkbox") {
-          displayMarkers(map, 'snap_centers', 'yellow');
-        }
-        if(id === "food_pantries_checkbox") {
-          displayMarkers(map, 'food_pantries', 'orange');
-        }
-        if(id === "food_scraps_checkbox") {
-          displayMarkers(map, 'food_scraps', 'green');
-        }
-      });
-    });
-  }
-
-  function clearFilters(map) {
-    clearAllButton.click(function(e) {
-      map.removeMarkers();
-      $("input:checkbox").each(function(box) {
-        $(this).prop("checked", false);
-      })
+      displayCheckedItems(map);    
     });
   }
 
@@ -136,15 +114,14 @@ $(function() {
         lng: -74.0060,
         zoom: 11
       });
-      displayMarkers(map, 'senior_centers', 'blue');
-      displayMarkers(map, 'snap_centers', 'yellow');
-      displayMarkers(map, 'soup_kitchens', 'red');
-      displayMarkers(map, 'food_pantries', 'orange');
-      displayMarkers(map, 'food_scraps', 'green');
+      displayMarkers(map, 'senior_centers', 'red');
+      displayMarkers(map, 'snap_centers', 'green');
+      displayMarkers(map, 'soup_kitchens', 'orange');
+      displayMarkers(map, 'food_pantries', 'yellow');
+      displayMarkers(map, 'food_scraps', 'blue');
       displayMarkers(map, 'homeless_shelters', 'purple');
-      displayMarkers(map, 'clothing_shelters', 'pink');
-      zoomMap(map);
-      clearFilters(map);
+      displayMarkers(map, 'clothing_charities', 'pink');
+      handleSubmit(map);
   }
 
   init();

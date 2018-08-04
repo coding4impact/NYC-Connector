@@ -18,13 +18,13 @@
 		<div class="collapse navbar-collapse ml-4">
 			<ul class="navbar-nav">
 				<li class="nav-item">
-					<a class="nav-link" data-scroll="" href="#find_resources">Find Resources</a>
+					<a class="nav-link" data-scroll href="#find_resources">Find Resources</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" data-scroll href="#map">Mission</a>
+					<a class="nav-link" data-scroll href="#mission">Mission</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link" data-scroll="" href="#contact">Contact</a>
+					<a class="nav-link" data-scroll href="#contact">Contact</a>
 				</li>
 			</ul>
 		</div>
@@ -45,50 +45,50 @@
         </div>
 	</div>
 	<div class="jumbotron jumbotron-fluid pt-4" id="find_resources" style="background: white;">
-        <h1 class="display-4 text-center">Map</h1><br />
+        <h1 class="display-4 text-center">Find Resources</h1><br />
 		<div id="images">
 			<div class="row">
-                <div class="">
+                <div class="icon-group">
 					<img class="rounded-circle" src="assets/icons/soupkitchen.gif">
 					<figcaption>
                         <input id="soup_kitchens_checkbox" type="checkbox" /> Soup Kitchens <br />
-                        <img src="https://maps.google.com/mapfiles/ms/icons/red-dot.png" alt="Red Marker" />
+                        <img src="https://maps.google.com/mapfiles/ms/icons/orange-dot.png" alt="Orange Marker" />
 					</figcaption>
 				</div>
-				<div class="">
+				<div class="icon-group">
 					<img class="rounded-circle" src="assets/icons/foodpantry.gif">
 					<figcaption>
-						<input id="food_pantries_checkbox" type="checkbox" /> Food Pantries <br /><img src="http://maps.google.com/mapfiles/ms/icons/orange-dot.png" alt="Red Marker" />
+						<input id="food_pantries_checkbox" type="checkbox" /> Food Pantries <br /><img src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" alt="Yellow Marker" />
 					</figcaption>
 				</div>
-                <div class="">
+                <div class="icon-group">
 					<img class="rounded-circle" src="assets/icons/snapcenter.gif">
 					<figcaption>
-						<input id="snap_centers_checkbox" type="checkbox" /> Snap Centers <br /><img src="http://maps.google.com/mapfiles/ms/icons/yellow-dot.png" alt="Red Marker" />
+						<input id="snap_centers_checkbox" type="checkbox" /> Snap Centers <br /><img src="http://maps.google.com/mapfiles/ms/icons/green-dot.png" alt="Green Marker" />
 					</figcaption>
 				</div>
-                <div class="">
+                <div class="icon-group">
 					<img class="rounded-circle" src="assets/icons/foodscrapdropoffcenter.gif">
 					<figcaption>
-						<input id="food_scraps_checkbox" type="checkbox" /> Food Scrap Drop-Off Sites <br /><img src="http://maps.google.com/mapfiles/ms/icons/green-dot.png" alt="Red Marker" />
+						<input id="food_scraps_checkbox" type="checkbox" /> Food Scrap Drop-Off Sites <br /><img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" alt="Blue Marker" />
 					</figcaption>
 				</div>
-				<div class="">
+				<div class="icon-group">
 					<img class="rounded-circle" src="assets/icons/seniorcenter.gif">
 					<figcaption>
-						<input id="senior_centers_checkbox" type="checkbox" /> Senior Centers <br /><img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" alt="Red Marker" />
+						<input id="senior_centers_checkbox" type="checkbox" /> Senior Centers <br /><img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" alt="Red Marker" />
 					</figcaption>
 				</div>
-				<div class="">
+				<div class="icon-group">
 					<img class="rounded-circle" src="assets/icons/clothingshelter.gif">
 					<figcaption>
-						<input id="senior_centers_checkbox" type="checkbox" /> Clothing Shelters <br /><img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" alt="Red Marker" />
+						<input id="clothing_charities_checkbox" type="checkbox" /> Clothing Charities <br /><img src="http://maps.google.com/mapfiles/ms/icons/pink-dot.png" alt="Pink Marker" />
 					</figcaption>
 				</div>
-                <div class="">
+                <div class="icon-group">
 					<img class="rounded-circle" src="assets/icons/homelessshelter.gif">
 					<figcaption>
-						<input id="senior_centers_checkbox" type="checkbox" /> Homeless Shelters <br /><img src="http://maps.google.com/mapfiles/ms/icons/red-dot.png" alt="Red Marker" />
+						<input id="homeless_shelters_checkbox" type="checkbox" /> Homeless Shelters <br /><img src="http://maps.google.com/mapfiles/ms/icons/purple-dot.png" alt="Purple Marker" />
 					</figcaption>
 				</div>
 			</div>
@@ -101,13 +101,21 @@
 		</div>
 		<div id="map"></div>
 	</div>
+    <div class="jumbotron jumbotron-fluid" style="height: 500px;">
+        <div class="container">
+            <h1 class="display-4 text-center" id="mission">Mission</h1>
+            <p class="lead">8.5 Million individuals call New York City their home, and a staggering 1.7 million live below the poverty line and rely on government and charitable sources to sustain the livelihoods of themselves and their families. In such a vast city with so many individuals relying on myriad resources, there are many charities operating on minimal budgets with the objective to help the individuals in need. <br /><br />
+
+NYC Connector was built with the mission to empower the thousands of charities in New York City and the tens of thousands of teenagers and adults looking to make an impact to the people who need it most. Built by the team at Coding4Impact[hyperlink to our website], a non-profit, NYC Connector aims to integrate the plethora of service opportunities in the city with those looking to make a difference. NYC Connector deviates from the typical service connector in that it creates a platform for connecting fringe, website-less and often contact-less charities to volunteers. For all individuals looking to volunteer in NYC, our self-built software allows for individuals to view specific resource centers nearby their address, as well as giving direct contact information. In our objective to overcome the obstacle of hunger and poverty in our city, we invite you to join our cause and drive impact within our society. Our situation cannot improve by chance – it can only improve through change. </p>
+        </div>
+    </div>
 	<div class="jumbotron jumbotron-fluid" style="height: 700px;">
 		<div class="container">
 			<h1 class="display-4 text-center" id="contact">Contact</h1>
 		</div>
 	</div>
 	<script>
-	          var scroll = new SmoothScroll('a[href*="#"]', {
+        var scroll = new SmoothScroll('a[href*="#"]', {
 
 	// Selectors
 	ignore: '[data-scroll-ignore]', // Selector for links to ignore (must be a valid CSS selector)
@@ -124,6 +132,9 @@
         }
         if(id === "#map") {
            return 75;
+        }
+        if (id === "#mission") {
+            return 85;
         }
     },
 	easing: 'easeInOutCubic', // Easing pattern to use

@@ -44,8 +44,6 @@ html, body {
      width: 70%;
      height: 650px;
 }
- .list-group-item {
-}
  #zip {
      width: 50%;
      margin: auto;
@@ -61,8 +59,9 @@ html, body {
 }
  .row {
      text-align: center;
-     margin-left: 12.5%;
+     padding-right: 10%;
+     padding-left: 10%;
 }
- .row div {
-     margin-left: 2%;
+ .row .icon-group {
+     margin: 0 auto;
 }
