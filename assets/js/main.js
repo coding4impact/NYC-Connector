@@ -4,7 +4,7 @@ $(function() {
   var clearAllButton = $("#clear_all");
 
   function loadJSONData(path, callback) {
-    $.getJSON(window.location.href + 'json_files/' + path + '.json', function(data) {
+    $.getJSON('/json_files/' + path + '.json', function(data) {
       callback(data);
     });
   }
@@ -24,59 +24,54 @@ $(function() {
 
   function handleContent(type, place) {
       
-      var content = '<div id="content" class="pt-2 bg-light" style="height: 100%;">' + 
-                        '<a href="' + searchQueryUrl(place['Name']) + '"' + '<h4 id="firstHeading" class="firstHeading">' + place['Name'] + '</h4></a>' + 
+      var website_url = type === "food_scraps" ? place['Website'] : searchQueryUrl(place['Name'])
+      var content = '<div id="content" class="pt-2 bg-light">' + 
+                        '<a href="' + website_url + '"' + '<h4 id="firstHeading" class="firstHeading">' + place['Name'] + '</h4></a><br /><br />' + 
                         '<div id="bodyContent">' + 
                             '<ul>';
       var factype = "";
       switch(type) {
           case "soup_kitchens":
               factype = "Soup Kitchen";
-              content += '<li> Type: ' + factype + '</li>';
               break;
           case "senior_centers":
               factype = "Senior Center";
-              content += '<li> Type: ' + factype + '</li>';
               break;
           case "snap_centers":
               factype = "Snap Center";
-              content += '<li> Type: ' + factype + '</li>';
               break;
           case "food_pantries":
               factype = "Food Pantry";
-              content += '<li> Type: ' + factype + '</li>';
               break;
           case "food_scraps":
               factype = "Food Scrap Drop-off Site (Composting)";
-              content += '<li> Type: ' + factype + '</li>';
               break;
           case "homeless_shelters":
               factype = "Homeless Shelter";
-              content += '<li> Type: ' + factype + '</li>';
               break;
           case "clothing_charities":
               factype = "Clothing Charity";
-              content += '<li> Type: ' + factype + '</li>';
               break;
       }
       
-      content += '<li> Address: ' + place['Address'] + '</li>';
+      content += '<li> Type: <strong>' + factype + '</strong></li>';
+      content += '<li> Address: <strong>' + place['Address'] + '</strong></li>';
       
       if (type === "clothing_charities" || type === "homeless_shelters") {
-          content += '<li> Phone Number: ' + place['Phone Number'] + '</li>';
+          content += '<li> Phone Number: <strong>' + place['Phone Number'] + '</strong></li>';
       }
       
       if (type === "food_scraps") {
           var website = place['Website']
-          content += '<li> Website: <a href="' + website + '">' + website + '</a></li>';
-          content += '<li> Open Months: ' + place['MONTH_'] + '</li>';
-          content += '<li> Days Open: ' + place['DAYS'] + '</li>';
-          content += '<li> Start Time: ' + place['STARTTIME'] + '</li>';
-          content += '<li> End Time: ' + place['ENDTIME'] + '</li>';
+          content += '<li> Website: <strong><a href="' + website + '">' + website + '</a></strong></li>';
+          content += '<li> Open Months: <strong>' + place['MONTH_'] + '</strong></li>';
+          content += '<li> Days Open: <strong>' + place['DAYS'] + '</strong></li>';
+          content += '<li> Start Time: <strong>' + place['STARTTIME'] + '</strong></li>';
+          content += '<li> End Time: <strong>' + place['ENDTIME'] + '</strong></li>';
       }
       
-      content += '<li> Borough: ' + place['Borough'] + '</li>';
-      content += '<li> Zip Code: ' + place['Zip Code'] + '</li>';  
+      content += '<li> Borough: <strong>' + place['Borough'] + '</strong></li>';
+      content += '<li> Zip Code: <strong>' + place['Zip Code'] + '</strong></li>';  
       content += '</ul>' +
                  '</div>' +
                     '</div>';

@@ -85,3 +85,15 @@ ul, ol {
 a, a:visited, a:hover {
     text-decoration: none;
 }
+#content {
+     padding-right: 5%;
+     padding-left: 5%;
+     height: 100%;
+}
+#bodyContent ul li {
+     font-size: 1.2em;
+}
+#firstHeading {
+    font-size: 1.5em;
+    color: blue;
+}
