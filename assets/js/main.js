@@ -4,7 +4,7 @@ $(function() {
   var clearAllButton = $("#clear_all");
 
   function loadJSONData(path, callback) {
-    $.getJSON(window.location.href + 'json_files/' + path + '.json', function(data) {
+    $.getJSON('/json_files/' + path + '.json', function(data) {
       callback(data);
     });
   }
@@ -66,8 +66,7 @@ $(function() {
           content += '<li> Website: <strong><a href="' + website + '">' + website + '</a></strong></li>';
           content += '<li> Open Months: <strong>' + place['MONTH_'] + '</strong></li>';
           content += '<li> Days Open: <strong>' + place['DAYS'] + '</strong></li>';
-          content += '<li> Start Time: <strong>' + place['STARTTIME'] + '</strong></li>';
-          content += '<li> End Time: <strong>' + place['ENDTIME'] + '</strong></li>';
+          content += '<li> Times: <strong>' + place['STARTTIME'] + ' - ' + place['ENDTIME'] + '</strong></li>';
       }
       
       content += '<li> Borough: <strong>' + place['Borough'] + '</strong></li>';

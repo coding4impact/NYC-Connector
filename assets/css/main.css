@@ -3,10 +3,10 @@ html, body {
      max-width: 100%;
      overflow-x: hidden;
 }
- .jumbotron {
+.jumbotron {
      margin-bottom: 0;
 }
- .info_window {
+.info_window {
      font-family: Cambria;
 }
  #footer_jumbotron {
@@ -14,8 +14,7 @@ html, body {
 }
  #info_jumbotron {
      background: #000 url("../nyc_background4.jpg") no-repeat center bottom;
-     width: 100%;
-     height: ;
+     height: 44em;
      background-size: cover;
      overflow: hidden;
      position:relative;
@@ -30,7 +29,7 @@ html, body {
      right: 0;
      left: 0;
      bottom: 0;
-     background: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) );
+     background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) );
 }
 #mission_jumbotron {
      background-color: #e3f2fd;
