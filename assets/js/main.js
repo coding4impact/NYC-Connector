@@ -47,7 +47,7 @@ $(function() {
         map.addMarker({
           lat: place['lat'],
           lng: place['lng'],
-          icon: 'http://maps.google.com/mapfiles/ms/icons/' + color + '-dot.png',
+          icon: 'assets/icons/' + color + '-dot.png',
           infoWindow: {
             content: content
           },
