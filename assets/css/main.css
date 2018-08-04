@@ -35,7 +35,6 @@ html, body {
      background-color: #e3f2fd;
 }
  #main_nav {
-     background-color: #e3f2fd;
      background-color: white;
 }
 .display-4 {
@@ -49,9 +48,27 @@ html, body {
      margin-right: 50px;
 }
  #map {
-     margin: auto;
-     width: 70%;
+     width: 71%;
      height: 650px;
+     margin-left: 28%;
+     border: 2px solid black;
+     border-top-right-radius: 5px;
+     border-bottom-right-radius: 5px;
+}
+#panel { 
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    border-top: 2px solid black;
+    border-left: 2px solid black;
+    border-bottom: 2px solid black;
+    position:absolute; 
+    width:27%; 
+    height: 650px;
+    max-height: 650px;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    margin-left: 1%; 
+    font-size: .8em;
 }
  #zip {
      width: 50%;
@@ -84,15 +101,56 @@ ul, ol {
 a, a:visited, a:hover {
     text-decoration: none;
 }
-#content {
+.black-color, .black-color a {
+    color: black;
+}
+.white-color, .white-color a {
+    color: white;
+}
+.orange-color, .orange-color a {
+    color: orange;
+}
+.yellow-color, .yellow-color a {
+    color: #bab72e;
+}
+.green-color, .green-color a {
+    color: green;
+}
+.blue-color, .blue-color a {
+    color: #1d3c8c;
+}
+.red-color, .red-color a {
+    color: #e5413d;
+}
+.pink-color, .pink-color a {
+    color: #f442bc;
+}
+.purple-color, .purple-color a {
+    color: purple;
+}
+.soup_kitchens_background {
+    background-color: orange;
+}
+.food_pantries_background {
+    background-color: black;
+}
+.place_info {
+     padding-top: 5%;
      padding-right: 5%;
      padding-left: 5%;
      height: 100%;
+     width: 100%;
+}
+.senior_center_background {
+    background-color: #73d678;
+}
+#bodyContent ul {
+    padding-left: 0;
 }
 #bodyContent ul li {
-     font-size: 1.2em;
+     font-size: 1.25em;
+     font-weight: 400;
 }
-#firstHeading {
-    font-size: 1.5em;
-    color: blue;
+.firstHeading {
+    font-size: 1.3em;
 }

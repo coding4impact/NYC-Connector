@@ -48,7 +48,7 @@
 		</div>
         </div>
 	</div>
-	<div class="jumbotron jumbotron-fluid pt-4" id="find_resources" style="background: white;">
+	<div class="jumbotron jumbotron-fluid pt-4" id="find_resources" style="background: whte;">
         <h1 class="display-4 text-center">Find Resources</h1><br />
 		<div id="images">
 			<div class="row">
@@ -100,10 +100,15 @@
 		<div class="input-group mb-3" id="zip">
 			<input class="form-control" id="address" placeholder="Enter Address or Zip Code (e.g. 900 Park Avenue)" type="address">
 			<div class="input-group-append">
-                <a data-scroll href="#map"><button class="btn btn-primary" id="search" type="button">Find</button></a>
+                <a data-scroll href="#map"><button class="btn btn-primary" id="search" type="button">Find</button></a><br />
 			</div>
 		</div>
-		<div id="map"></div>
+        
+            <div id="panel" class="bg-light">
+                <h5 class="text-center mt-3">Places</h5><hr>
+            </div>
+		    <div id="map"></div>
+        
 	</div>
     <div class="jumbotron jumbotron-fluid" id="mission_jumbotron" style="height: 100%;">
         <div class="container">
@@ -119,54 +124,54 @@ NYC Connector was built with the mission to empower the thousands of charities i
             <iframe src="https://docs.google.com/forms/d/e/1FAIpQLScEOT5tmg_herTpYeq2L1gz8y6nYvDz3wVQBXzgn2KSUs5JwQ/viewform?embedded=true" frameborder="0" marginheight="0" marginwidth="0" style="height: 90em; width: 100%;">Loading...</iframe>
 		</div>
 	</div>
-<script>
-    var scroll = new SmoothScroll('a[href*="#"]', {
+    <script>
+        var scroll = new SmoothScroll('a[href*="#"]', {
 
-	// Selectors
-	ignore: '[data-scroll-ignore]', // Selector for links to ignore (must be a valid CSS selector)
-	header: null, // Selector for fixed headers (must be a valid CSS selector)
-	topOnEmptyHash: true, // Scroll to the top of the page for links with href="#"
+    // Selectors
+    ignore: '[data-scroll-ignore]', // Selector for links to ignore (must be a valid CSS selector)
+    header: null, // Selector for fixed headers (must be a valid CSS selector)
+    topOnEmptyHash: true, // Scroll to the top of the page for links with href="#"
 
-	// Speed & Easing
-	speed: 500, // Integer. How fast to complete the scroll in milliseconds
-	clip: true, // If true, adjust scroll distance to prevent abrupt stops near the bottom of the page
-	offset: function(anchor, toggle) {
+    // Speed & Easing
+    speed: 500, // Integer. How fast to complete the scroll in milliseconds
+    clip: true, // If true, adjust scroll distance to prevent abrupt stops near the bottom of the page
+    offset: function(anchor, toggle) {
         var id = $(toggle).attr("href");
-        if(id === "#find_resources") {
+        if (id === "#find_resources") {
             return 50;
         }
-        if(id === "#contact") {
+        if (id === "#contact") {
             return 100;
         }
-        if(id === "#map") {
-           return 75;
+        if (id === "#map") {
+            return 75;
         }
         if (id === "#mission") {
             return 100;
         }
     },
-	easing: 'easeInOutCubic', // Easing pattern to use
-	customEasing: function (time) {
+    easing: 'easeInOutCubic', // Easing pattern to use
+    customEasing: function(time) {
 
-		// Function. Custom easing pattern
-		// If this is set to anything other than null, will override the easing option above
+        // Function. Custom easing pattern
+        // If this is set to anything other than null, will override the easing option above
 
-		// return <your formulate with time as a multiplier>
+        // return <your formulate with time as a multiplier>
 
-		// Example: easeInOut Quad
-		return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
+        // Example: easeInOut Quad
+        return time < 0.5 ? 2 * time * time : -1 + (4 - 2 * time) * time;
 
-	},
+    },
 
-	// History
-	updateURL: false, // Update the URL on scroll
-	popstate: false, // Animate scrolling with the forward/backward browser buttons (requires updateURL to be true)
+    // History
+    updateURL: false, // Update the URL on scroll
+    popstate: false, // Animate scrolling with the forward/backward browser buttons (requires updateURL to be true)
 
-	// Custom Events
-	emitEvents: true // Emit custom events
+    // Custom Events
+    emitEvents: true // Emit custom events
 
-    });
-</script> 
+});
+    </script> 
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> 
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
     <script src="bower_components/gmaps/gmaps.min.js"></script>

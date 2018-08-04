@@ -10,7 +10,20 @@ $(function() {
   }
     
   function searchQueryUrl(name) {
-      var query = "https://www.google.com/search?q="
+      var query = "https://www.google.com/search?q=";
+      var split_words = name.split(" ");
+      for(var i = 0; i < split_words.length; i++) {
+          if (i != split_words.length - 1) {
+              query += split_words[i] + "+";
+          } else {
+              query += split_words[i];
+          }
+      }
+      return query;
+  }
+    
+  function googleMapsSearchQuery(name) {
+      var query = "https://www.google.com/maps/place";
       var split_words = name.split(" ");
       for(var i = 0; i < split_words.length; i++) {
           if (i != split_words.length - 1) {
@@ -25,56 +38,58 @@ $(function() {
   function handleContent(type, place) {
       
       var website_url = type === "food_scraps" ? place['Website'] : searchQueryUrl(place['Name'])
-      var content = '<div id="content" class="pt-2 bg-light">' + 
-                        '<a href="' + website_url + '"' + '<h4 id="firstHeading" class="firstHeading">' + place['Name'] + '</h4></a><br /><br />' + 
+      var content = '';
+                        
+      
+      var factype_color_classes = {
+          "soup_kitchens": "black-color",
+          "senior_centers": "red-color",
+          "snap_centers": "green-color",
+          "food_pantries": "yellow-color",
+          "food_scraps": "blue-color",
+          "clothing_charities": "pink-color",
+          "homeless_shelters": "purple-color"
+      };
+      
+      var factype_display_names = {
+          "soup_kitchens": "Soup Kitchen",
+          "senior_centers": "Senior Center",
+          "snap_centers": "SNAP Center",
+          "food_pantries": "Food Pantry",
+          "food_scraps": "Food Scrap Drop-off Site",
+          "clothing_charities": "Clothing Charity",
+          "homeless_shelters": "Homeless Shelter"
+      }
+      
+      var opening_div_tag = '<div class="place_info ' + factype_color_classes[type] + '">';
+      content += opening_div_tag;
+      content += '<a href="' + website_url + '"' + '<h5 class="firstHeading">' + place['Name'] + '</h5></a><hr>' + 
                         '<div id="bodyContent">' + 
                             '<ul>';
       
-      var factype = "";
-      switch(type) {
-          case "soup_kitchens":
-              factype = "Soup Kitchen";
-              break;
-          case "senior_centers":
-              factype = "Senior Center";
-              break;
-          case "snap_centers":
-              factype = "Snap Center";
-              break;
-          case "food_pantries":
-              factype = "Food Pantry";
-              break;
-          case "food_scraps":
-              factype = "Food Scrap Drop-off Site (Composting)";
-              break;
-          case "homeless_shelters":
-              factype = "Homeless Shelter";
-              break;
-          case "clothing_charities":
-              factype = "Clothing Charity";
-              break;
-      }
+      var factype = factype_display_names[type];
       
-      content += '<li> Type: <strong>' + factype + '</strong></li>';
-      content += '<li> Address: <strong>' + place['Address'] + '</strong></li>';
+      content += '<li> Type: <br /><strong>' + factype + '</strong></li><br />';
+      content += '<li> Address: <br /> <strong>' + place['Address'] + '</strong></li><br />';
       
       if (type === "clothing_charities" || type === "homeless_shelters" || type === "snap_centers") {
-          content += '<li> Phone Number: <strong>' + place['Phone Number'] + '</strong></li>';
+          content += '<li> Phone Number: <br /> <strong>' + place['Phone Number'] + '</strong></li><br />';
       }
       
       if (type === "food_scraps") {
           var website = place['Website']
-          content += '<li> Website: <strong><a href="' + website + '">' + website + '</a></strong></li>';
-          content += '<li> Open Months: <strong>' + place['MONTH_'] + '</strong></li>';
-          content += '<li> Days Open: <strong>' + place['DAYS'] + '</strong></li>';
-          content += '<li> Times: <strong>' + place['STARTTIME'] + ' - ' + place['ENDTIME'] + '</strong></li>';
+          content += '<li> Website: <br /> <strong><a href="' + website + '">' + website + '</a></strong></li><br />';
+          content += '<li> Open Months: <br /> <strong>' + place['MONTH_'] + '</strong></li><br />';
+          content += '<li> Days Open: <br /> <strong>' + place['DAYS'] + '</strong></li><br />';
+          content += '<li> Times: <br /> <strong>' + place['STARTTIME'] + ' - ' + place['ENDTIME'] + '</strong></li><br />';
       }
       
-      content += '<li> Borough: <strong>' + place['Borough'] + '</strong></li>';
-      content += '<li> Zip Code: <strong>' + place['Zip Code'] + '</strong></li>';  
+      content += '<li> Borough: <br /> <strong>' + place['Borough'] + '</strong></li><br />';
+      content += '<li> Zip Code: <br /> <strong>' + place['Zip Code'] + '</strong></li><br />';  
       content += '</ul>' +
                  '</div>' +
-                    '</div>';
+                    '</div>' + 
+                        '</span>';
                         
       return content;
   }
@@ -83,12 +98,15 @@ $(function() {
     loadJSONData(filename, function(data) {
       data.forEach(function(place) {
         var content = handleContent(filename, place);
+        var latitude = place['lat'];
+        var longitude = place['lng'];
         map.addMarker({
-          lat: place['lat'],
-          lng: place['lng'],
+          lat: latitude,
+          lng: longitude,
           icon: 'assets/icons/' + color + '-dot.png',
-          infoWindow: {
-            content: content
+          click: function(e) {
+            $("#panel").html(content);
+            map.setCenter(latitude, longitude);
           }
         });
     });
