@@ -61,6 +61,7 @@ html, body {
  .lead {
      line-height: 1.4em;
      letter-spacing: .1em;
+     font-weight: bold;
 }
  #images .rounded-circle {
      height: 115px;
