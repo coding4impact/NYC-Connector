@@ -4,7 +4,7 @@ $(function() {
   var clearAllButton = $("#clear_all");
 
   function loadJSONData(path, callback) {
-    $.getJSON('/json_files/' + path + '.json', function(data) {
+    $.getJSON(window.location.href + 'json_files/' + path + '.json', function(data) {
       callback(data);
     });
   }
