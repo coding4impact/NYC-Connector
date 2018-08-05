@@ -23,7 +23,7 @@ $(function() {
   }
     
   function googleMapsSearchQuery(name) {
-      var query = "https://www.google.com/maps/place";
+      var query = "https://www.google.com/maps/place/";
       var split_words = name.split(" ");
       for(var i = 0; i < split_words.length; i++) {
           if (i != split_words.length - 1) {
@@ -42,7 +42,7 @@ $(function() {
                         
       
       var factype_color_classes = {
-          "soup_kitchens": "black-color",
+          "soup_kitchens": "orange-color",
           "senior_centers": "red-color",
           "snap_centers": "green-color",
           "food_pantries": "yellow-color",
@@ -63,21 +63,25 @@ $(function() {
       
       var opening_div_tag = '<div class="place_info ' + factype_color_classes[type] + '">';
       content += opening_div_tag;
-      content += '<a href="' + website_url + '"' + '<h5 class="firstHeading">' + place['Name'] + '</h5></a><hr>' + 
-                        '<div id="bodyContent">' + 
+      content += '<a href="' + website_url + '">' + '<h5 class="firstHeading">' + place['Name'] + '</h5></a><hr>' + '<div id="bodyContent">' + 
                             '<ul>';
       
       var factype = factype_display_names[type];
       
       content += '<li> Type: <br /><strong>' + factype + '</strong></li><br />';
-      content += '<li> Address: <br /> <strong>' + place['Address'] + '</strong></li><br />';
+      content += '<li> Address: <br /> <strong>' + place['Address'] + '</strong> <a href="' + googleMapsSearchQuery(place['Address']) + '"> - Directions </a></li><br />';
       
       if (type === "clothing_charities" || type === "homeless_shelters" || type === "snap_centers") {
           content += '<li> Phone Number: <br /> <strong>' + place['Phone Number'] + '</strong></li><br />';
       }
       
+      if (type === "homeless_shelters") {
+          var website = place['Website'];
+          content += '<li> Website: <br /> <strong><a href="' + website + '">' + website + '</a></strong></li><br />';
+       }
+      
       if (type === "food_scraps") {
-          var website = place['Website']
+          var website = place['Website'] === " " ? "N/A" : place['Website'];
           content += '<li> Website: <br /> <strong><a href="' + website + '">' + website + '</a></strong></li><br />';
           content += '<li> Open Months: <br /> <strong>' + place['MONTH_'] + '</strong></li><br />';
           content += '<li> Days Open: <br /> <strong>' + place['DAYS'] + '</strong></li><br />';
