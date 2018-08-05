@@ -42,7 +42,7 @@ html, body {
 }
 #mission_jumbotron {
      background-color: #e3f2fd;
-     height: 110vh;
+     height: 100%;
 }
  #main_nav {
      background-color: white;
@@ -87,6 +87,7 @@ html, body {
      line-height: 1.4em;
      letter-spacing: .1em;
      font-weight: bold;
+     font-size: 1.4em;
 }
  #images .rounded-circle {
      height: 115px;
