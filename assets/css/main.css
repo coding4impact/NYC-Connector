@@ -60,7 +60,7 @@ html, body {
     
 }
 #search {
-    width: 5vw;
+    width: 100px;
     background-color: lightskyblue;
 }
 #search:hover {
@@ -182,26 +182,37 @@ a, a:visited, a:hover {
     html, body {
         font-size: 12px;
     }
-    .navbar {
-        height: 40px;
-    }
     #info_jumbotron {
         font-size: 7px;
     }
-    .link {
-        font-size: 7px;
-    }
+    
     #main_nav img {
-        height: 20px;
-        width: 50px;
+        height: 40px;
+        width: 110px;
     }
     .display-4 {
         font-size: 14px;
     }
-     #images .rounded-circle {
-     height: 25px;
-     width: 25px;
-     border: 2px solid black;
+    #find_resources {
+        font-size: 7px;
+    }
+    #find_resources input[type='checkbox'] {
+        height: 10px;
+        width: 10px;
+    }
+    #images .rounded-circle {
+        height: 20px;
+        width: 20px;
+    }
+    #images img {
+        width: 15px;
+        height: 15px;
+    }
+    #panel, #panel h5 {
+        font-size: 8px;
+    }
+    #search {
+        width: 60px;
     }
     #map, #panel {
         height: 40vh;
