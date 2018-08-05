@@ -185,7 +185,6 @@ a, a:visited, a:hover {
     #info_jumbotron {
         font-size: 7px;
     }
-    
     #main_nav img {
         height: 40px;
         width: 110px;
@@ -204,17 +203,20 @@ a, a:visited, a:hover {
         height: 20px;
         width: 20px;
     }
-    #images img {
+    #images img, #bodyContent img {
         width: 15px;
         height: 15px;
     }
     #panel, #panel h5 {
         font-size: 8px;
     }
+    #bodyContent ul li {
+        font-size: 10px;
+    }
     #search {
         width: 60px;
     }
     #map, #panel {
-        height: 40vh;
+        height: 50vh;
     }
 }
