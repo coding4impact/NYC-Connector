@@ -36,7 +36,7 @@ html, body {
     font-size: 5em;
 }
 #mission_jumbotron {
-     background-color: #e3f2fd;
+     background-color: rgba(227, 242, 253, 0.4);
      height: 100%;
 }
  #main_nav {
@@ -53,22 +53,29 @@ html, body {
     background-color: white;
 }
 #find_resources h1 {
-    color: grey;
+    
+}
+#search {
+    width: 5vw;
+    background-color: lightskyblue;
+}
+#search:hover {
+    background-color: deepskyblue;
 }
  #map {
      width: 71%;
      height: 88vh;
      margin-left: 28%;
-     border: 3px solid black;
+     border: 3px solid skyblue;
      border-top-right-radius: 5px;
      border-bottom-right-radius: 5px;
 }
 #panel { 
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    border-top: 3px solid black;
-    border-left: 3px solid black;
-    border-bottom: 3px solid black;
+    border-top: 3px solid skyblue;
+    border-left: 3px solid skyblue;
+    border-bottom: 3px solid skyblue;
     position:absolute; 
     width:27%; 
     height: 88vh;
@@ -76,6 +83,7 @@ html, body {
     overflow-y: scroll;
     margin-left: 1%; 
     font-size: .8em;
+    background-color: whitesmoke;
 }
  #zip {
      width: 50%;
@@ -87,8 +95,8 @@ html, body {
      font-size: 1.4em;
 }
  #images .rounded-circle {
-     height: 115px;
-     width: 115px;
+     height: 110px;
+     width: 110px;
      border: 2px solid black;
 }
  .row {
@@ -128,6 +136,7 @@ a, a:visited, a:hover {
 }
 .red-color, .red-color a {
     color: #0f7f79;
+    color: #ff8e8e;
 }
 .pink-color, .pink-color a {
     color: #f442bc;
@@ -158,9 +167,18 @@ a, a:visited, a:hover {
     padding-left: 0;
 }
 #bodyContent ul li {
-     font-size: 1.25em;
+     font-size: 1.4em;
      font-weight: 400;
 }
 .firstHeading {
     font-size: 1.5em;
+}
+@media only screen 
+  and (min-device-width: 375px) 
+  and (max-device-width: 667px) 
+  and (-webkit-min-device-pixel-ratio: 2)
+  and (orientation: portrait) { 
+      body {
+          background-color: red;
+      }
 }
