@@ -1,3 +1,13 @@
+@media only screen 
+and (min-device-width : 414px) 
+and (max-device-width : 736px) 
+and (orientation : portrait) { 
+    html, body {
+        font-size: 12px;
+        background-color: red;
+    }
+}
+
 html, body {
      font-family: 'Roboto', 'PT-Sans', sans-serif;
      max-width: 100%;
@@ -12,7 +22,6 @@ html, body {
  #info_jumbotron {
      background: url("../nyc_background7.jpg") no-repeat center bottom;
      height: 100%;
-     min-height: 100vh;
      background-size: cover;
      overflow: hidden;
      position:relative;
