@@ -13,32 +13,23 @@ html, body {
      background-color: #d3dded;
 }
  #info_jumbotron {
-     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url("../nyc_background6.jpg") no-repeat center bottom;
+     background: url("../nyc_background7.jpg") no-repeat center bottom;
      height: 95vh;
      background-size: cover;
      overflow: hidden;
      position:relative;
      top:0;
      left:0;
-     z-index:1;
-     box-shadow: inset 0 0 0 1000px rgba(0,0,0,.2);
 }
- #info_jumotron:before{
+ #info_jumbotron:before{
      content: '';
      position: absolute;
      top: 0;
      right: 0;
      left: 0;
      bottom: 0;
-     background: linear-gradient( rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6) );
-}
-.laye {
-    background-color: rgba(248, 247, 216, 0.5);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+     background-color: skyblue;
+     opacity: 0.7;
 }
 #mission_jumbotron {
      background-color: #e3f2fd;
@@ -46,9 +37,6 @@ html, body {
 }
  #main_nav {
      background-color: white;
-}
-.display-4 {
-     font-weight: bold;
 }
 .link:hover, .link:visited {
      text-decoration: none;
@@ -61,15 +49,15 @@ html, body {
      width: 71%;
      height: 88vh;
      margin-left: 28%;
-     border: 2px solid black;
+     border: 3px solid black;
      border-top-right-radius: 5px;
      border-bottom-right-radius: 5px;
 }
 #panel { 
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
-    border-top: 2px solid black;
-    border-left: 2px solid black;
+    border-top: 3px solid black;
+    border-left: 3px solid black;
     border-bottom: 2px solid black;
     position:absolute; 
     width:27%; 
@@ -86,7 +74,6 @@ html, body {
  .lead {
      line-height: 1.4em;
      letter-spacing: .1em;
-     font-weight: bold;
      font-size: 1.4em;
 }
  #images .rounded-circle {
