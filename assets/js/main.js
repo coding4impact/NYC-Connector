@@ -37,7 +37,7 @@ $(function() {
 
   function handleContent(type, place) {
       
-      var website_url = place['Website'] === "N/A" ? searchQueryUrl(place['Name']) : place['Website'];
+      var website_url = place['Website'] != undefined ? place['Website'] : searchQueryUrl(place['Name']);
       var content = '';
                         
       
@@ -83,7 +83,7 @@ $(function() {
       
       var opening_div_tag = '<div class="place_info ' + factype_color_classes[type] + '">';
       content += opening_div_tag;
-      content += '<a href="' + website_url + '">' + '<h5 class="firstHeading">' + place['Name'] +               '</h5></a><hr>' + 
+      content += '<a href="' + website_url + '">' + '<h4 class="firstHeading">' + place['Name'] +               '</h4></a><hr>' + 
                 '<div id="bodyContent">' + 
                     '<ul>';
       
@@ -96,14 +96,15 @@ $(function() {
           content += '<li> Phone Number: <br /> <strong>' + place['Phone Number'] + '</strong></li><br />';
       }
       
+      if (type === "homeless_shelters" || type === "clothing_charities") {
+          var website = place['Website'];
+          content += '<li> Website: <br /> <strong><a href="' + website + '">' + website + '</a></strong></li><br />';
+       }
+      
       if (type === "clothing_charities"){
           content += '<li> Hours: <br /> <strong>' + place['Hours'] + '</strong></li><br />';
       }
       
-      if (type === "homeless_shelters") {
-          var website = place['Website'];
-          content += '<li> Website: <br /> <strong><a href="' + website + '">' + website + '</a></strong></li><br />';
-       }
       
       if (type === "food_scraps") {
           var website = place['Website'];
