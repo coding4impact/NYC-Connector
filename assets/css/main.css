@@ -175,13 +175,7 @@ a, a:visited, a:hover {
 }
 @media only screen and (min-device-width: 480px){ 
       #info_jumbotron {
-     background: url("../nyc_background3.jpg") no-repeat center bottom;
-     height: 95vh;
-     background-size: cover;
-     overflow: hidden;
-     position:relative;
-     top:0;
-     left:0;
+     display: none;
 }
        #map {
      width: 71%;
