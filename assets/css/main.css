@@ -173,37 +173,3 @@ a, a:visited, a:hover {
 .firstHeading {
     font-size: 1.5em;
 }
-@media only screen and (min-device-width: 480px){ 
-      #info_jumbotron {
-     background: url("../nyc_background3.jpg") no-repeat center bottom;
-     height: 95vh;
-     background-size: cover;
-     overflow: hidden;
-     position:relative;
-     top:0;
-     left:0;
-}
-       #map {
-     width: 71%;
-     height: 50%;
-     margin-left: 28%;
-     border: 3px solid skyblue;
-     border-top-right-radius: 5px;
-     border-bottom-right-radius: 5px;
-      }
-      #panel { 
-        border-top-left-radius: 5px;
-        border-bottom-left-radius: 5px;
-        border-top: 3px solid skyblue;
-        border-left: 3px solid skyblue;
-        border-bottom: 3px solid skyblue;
-        position:absolute; 
-        width:27%; 
-        height: 50%;
-        overflow-x: hidden;
-        overflow-y: scroll;
-        margin-left: 1%; 
-        font-size: .8em;
-        background-color: whitesmoke;
-      }
-}
