@@ -6,9 +6,6 @@ html, body {
 .jumbotron {
      margin-bottom: 0;
 }
-.info_window {
-     font-family: Cambria;
-}
  #footer_jumbotron {
      background-color: #d3dded;
 }
@@ -31,6 +28,13 @@ html, body {
      background-color: skyblue;
      opacity: 0.7;
 }
+#info_text {
+    color: white;
+    position: relative;
+}
+#info_text h1 {
+    font-size: 5em;
+}
 #mission_jumbotron {
      background-color: #e3f2fd;
      height: 100%;
@@ -42,8 +46,14 @@ html, body {
      text-decoration: none;
 }
 .link {
-     color: blue;
+     color: lightslategrey;
      margin-right: 50px;
+}
+#find_resources {
+    background-color: white;
+}
+#find_resources h1 {
+    color: grey;
 }
  #map {
      width: 71%;
@@ -58,7 +68,7 @@ html, body {
     border-bottom-left-radius: 5px;
     border-top: 3px solid black;
     border-left: 3px solid black;
-    border-bottom: 2px solid black;
+    border-bottom: 3px solid black;
     position:absolute; 
     width:27%; 
     height: 88vh;
