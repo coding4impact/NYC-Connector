@@ -4,7 +4,7 @@ $(function() {
   var clearAllButton = $("#clear_all");
 
   function loadJSONData(path, callback) {
-    $.getJSON(window.location.href + 'json_files/' + path + '.json', function(data) {
+    $.getJSON(window.location.href + 'data/' + path + '.json', function(data) {
       callback(data);
     });
   }
@@ -37,7 +37,7 @@ $(function() {
 
   function handleContent(type, place) {
       
-      var website_url = type === "food_scraps" ? place['Website'] : searchQueryUrl(place['Name'])
+      var website_url = place['Website'] === "N/A" ? searchQueryUrl(place['Name']) : place['Website'];
       var content = '';
                         
       
@@ -61,18 +61,43 @@ $(function() {
           "homeless_shelters": "Homeless Shelter"
       }
       
+      var factype_gif_images = {
+          "soup_kitchens": "soupkitchen.gif",
+          "senior_centers": "seniorcenter.gif",
+          "snap_centers": "snapcenter.gif",
+          "food_pantries": "foodpantry.gif",
+          "food_scraps": "foodscrapdropoffcenter.gif",
+          "clothing_charities": "clothingshelter.gif",
+          "homeless_shelters": "homelessshelter.gif"
+      }
+      
+      var factype_marker_images = {
+          "soup_kitchens": "orange-dot.png",
+          "senior_centers": "red-dot.png",
+          "snap_centers": "green-dot.png",
+          "food_pantries": "yellow-dot.png",
+          "food_scraps": "blue-dot.png",
+          "clothing_charities": "pink-dot.png",
+          "homeless_shelters": "purple-dot.png"
+      }
+      
       var opening_div_tag = '<div class="place_info ' + factype_color_classes[type] + '">';
       content += opening_div_tag;
-      content += '<a href="' + website_url + '">' + '<h5 class="firstHeading">' + place['Name'] + '</h5></a><hr>' + '<div id="bodyContent">' + 
-                            '<ul>';
+      content += '<a href="' + website_url + '">' + '<h5 class="firstHeading">' + place['Name'] +               '</h5></a><hr>' + 
+                '<div id="bodyContent">' + 
+                    '<ul>';
       
       var factype = factype_display_names[type];
       
-      content += '<li> Type: <br /><strong>' + factype + '</strong></li><br />';
+      content += '<li> Type: <br /><img style="height: 30px; width: 30px;" src="assets/icons/' + factype_gif_images[type] + '" /> <strong>' + factype + '</strong> - <img src="assets/icons/' + factype_marker_images[type] + '" /></li><br />';
       content += '<li> Address: <br /> <strong>' + place['Address'] + '</strong> <a href="' + googleMapsSearchQuery(place['Address']) + '"> - Directions </a></li><br />';
       
       if (type === "clothing_charities" || type === "homeless_shelters" || type === "snap_centers") {
           content += '<li> Phone Number: <br /> <strong>' + place['Phone Number'] + '</strong></li><br />';
+      }
+      
+      if (type === "clothing_charities"){
+          content += '<li> Hours: <br /> <strong>' + place['Hours'] + '</strong></li><br />';
       }
       
       if (type === "homeless_shelters") {
@@ -81,15 +106,20 @@ $(function() {
        }
       
       if (type === "food_scraps") {
-          var website = place['Website'] === " " ? "N/A" : place['Website'];
+          var website = place['Website'];
           content += '<li> Website: <br /> <strong><a href="' + website + '">' + website + '</a></strong></li><br />';
           content += '<li> Open Months: <br /> <strong>' + place['MONTH_'] + '</strong></li><br />';
           content += '<li> Days Open: <br /> <strong>' + place['DAYS'] + '</strong></li><br />';
-          content += '<li> Times: <br /> <strong>' + place['STARTTIME'] + ' - ' + place['ENDTIME'] + '</strong></li><br />';
+          content += '<li> Hours: <br /> <strong>' + place['STARTTIME'] + ' - ' + place['ENDTIME'] + '</strong></li><br />';
       }
       
       content += '<li> Borough: <br /> <strong>' + place['Borough'] + '</strong></li><br />';
-      content += '<li> Zip Code: <br /> <strong>' + place['Zip Code'] + '</strong></li><br />';  
+      content += '<li> Zip Code: <br /> <strong>' + place['Zip Code'] + '</strong></li><br />'; 
+      
+      if (type === "food_pantries" || type === "soup_kitchens") {
+          content += '<li> Council District: <br /> <strong>' + place['council district'] + '</strong></li><br />';
+      }
+          
       content += '</ul>' +
                  '</div>' +
                     '</div>' + 
