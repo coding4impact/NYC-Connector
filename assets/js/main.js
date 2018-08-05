@@ -90,7 +90,7 @@ $(function() {
       var factype = factype_display_names[type];
       
       content += '<li> Type: <br /><img style="height: 30px; width: 30px;" src="assets/icons/' + factype_gif_images[type] + '" /> <strong>' + factype + '</strong> - <img src="assets/icons/' + factype_marker_images[type] + '" /></li><br />';
-      content += '<li> Address: <br /> <strong>' + place['Address'] + '</strong> <a href="' + googleMapsSearchQuery(place['Address']) + '"> - Directions </a></li><br />';
+      content += '<li> Address: <br /> <strong>' + place['Address'] + '</strong> - <a href="' + googleMapsSearchQuery(place['Address']) + '"> Directions </a></li><br />';
       
       if (type === "clothing_charities" || type === "homeless_shelters" || type === "snap_centers") {
           content += '<li> Phone Number: <br /> <strong>' + place['Phone Number'] + '</strong></li><br />';
