@@ -11,7 +11,7 @@ html, body {
 }
  #info_jumbotron {
      background: url("../nyc_background7.jpg") no-repeat center bottom;
-     height: 95vh;
+     height: 100%;
      background-size: cover;
      overflow: hidden;
      position:relative;
