@@ -32,6 +32,12 @@ html, body {
     color: white;
     position: relative;
 }
+#info_text a {
+    color: #16448e;
+}
+#info_text a:hover {
+    color: #476699;
+}
 .lead {
      line-height: 1.4em;
      letter-spacing: .1em;
