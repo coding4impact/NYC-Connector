@@ -2,8 +2,18 @@
 <html lang="en">
 <head>
 	<title>NYC Connector</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta charset="utf-8">
+	<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-123480859-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-123480859-1');
+</script>
+
 	<script src="bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
 	<script src="bower_components/smooth-scroll.js/dist/smooth-scroll.polyfills.min.js"></script>
     <link rel="icon" type="image/png" href="/favicon.png" />
@@ -91,10 +101,16 @@
 						<input id="clothing_charities_checkbox" type="checkbox" /> Clothing Charities <br /><img src="assets/icons/pink-dot.png" alt="Pink Marker" />
 					</figcaption>
 				</div>
-                <div class="icon-group">
+        <div class="icon-group">
 					<img class="rounded-circle" src="assets/icons/homelessshelter.gif">
 					<figcaption>
 						<input id="homeless_shelters_checkbox" type="checkbox" /> Homeless Shelters <br /><img src="assets/icons/purple-dot.png" alt="Purple Marker" />
+					</figcaption>
+				</div>
+				<div class="icon-group">
+					<img class="rounded-circle" src="assets/icons/volunteer.png">
+					<figcaption>
+						<input id="volunteer_checkbox" type="checkbox" /> Volunteer opportunities <br /><img src="assets/icons/lightblue-dot.png" alt="Light Blue Marker" />
 					</figcaption>
 				</div>
 			</div>
@@ -105,12 +121,12 @@
                 <a data-scroll href="#map"><button class="btn" id="search" type="button">Find</button></a><br />
 			</div>
 		</div>
-        
+
             <div id="panel">
                 <h5 class="text-center mt-3">Click on a pinpoint marker</h5><hr>
             </div>
 		    <div id="map"></div>
-        
+
 	</div>
     <div class="jumbotron jumbotron-fluid" id="mission_jumbotron">
         <div class="container">
@@ -173,9 +189,10 @@ NYC Connector was built with the mission to empower the thousands of charities i
     emitEvents: true // Emit custom events
 
 });
-    </script> 
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script> 
+    </script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+    <!--<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js"></script>-->
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCi-wWi85UbBDYf4oi3Gsph4kwCp6SwsM4"></script>
     <script src="bower_components/gmaps/gmaps.min.js"></script>
 	<script src="assets/js/main.js"></script>

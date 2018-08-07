@@ -8,7 +8,7 @@ $(function() {
       callback(data);
     });
   }
-    
+
   function searchQueryUrl(name) {
       var query = "https://www.google.com/search?q=";
       var split_words = name.split(" ");
@@ -21,7 +21,7 @@ $(function() {
       }
       return query;
   }
-    
+
   function googleMapsSearchQuery(name) {
       var query = "https://www.google.com/maps/place/";
       var split_words = name.split(" ");
@@ -36,11 +36,11 @@ $(function() {
   }
 
   function handleContent(type, place) {
-      
+
       var website_url = place['Website'] != undefined ? place['Website'] : searchQueryUrl(place['Name']);
       var content = '';
-                        
-      
+
+
       var factype_color_classes = {
           "soup_kitchens": "orange-color",
           "senior_centers": "red-color",
@@ -48,9 +48,10 @@ $(function() {
           "food_pantries": "yellow-color",
           "food_scraps": "blue-color",
           "clothing_charities": "pink-color",
-          "homeless_shelters": "purple-color"
+          "homeless_shelters": "purple-color",
+          "volunteer": "lightblue-color"
       };
-      
+
       var factype_display_names = {
           "soup_kitchens": "Soup Kitchen",
           "senior_centers": "Senior Center",
@@ -58,9 +59,10 @@ $(function() {
           "food_pantries": "Food Pantry",
           "food_scraps": "Food Scrap Drop-off Site",
           "clothing_charities": "Clothing Charity",
-          "homeless_shelters": "Homeless Shelter"
+          "homeless_shelters": "Homeless Shelter",
+          "volunteer": "Community Service Center"
       }
-      
+
       var factype_gif_images = {
           "soup_kitchens": "soupkitchen.gif",
           "senior_centers": "seniorcenter.gif",
@@ -68,9 +70,10 @@ $(function() {
           "food_pantries": "foodpantry.gif",
           "food_scraps": "foodscrapdropoffcenter.gif",
           "clothing_charities": "clothingshelter.gif",
-          "homeless_shelters": "homelessshelter.gif"
+          "homeless_shelters": "homelessshelter.gif",
+          "volunteer": "volunteer.png"
       }
-      
+
       var factype_marker_images = {
           "soup_kitchens": "orange-dot.png",
           "senior_centers": "red-dot.png",
@@ -78,54 +81,59 @@ $(function() {
           "food_pantries": "yellow-dot.png",
           "food_scraps": "blue-dot.png",
           "clothing_charities": "pink-dot.png",
-          "homeless_shelters": "purple-dot.png"
+          "homeless_shelters": "purple-dot.png",
+          "volunteer": "lightblue-dot.png"
       }
-      
+
       var opening_div_tag = '<div class="place_info ' + factype_color_classes[type] + '">';
       content += opening_div_tag;
-      content += '<a href="' + website_url + '">' + '<h4 class="firstHeading">' + place['Name'] +               '</h4></a><hr>' + 
-                '<div id="bodyContent">' + 
+      content += '<a target="_blank" href="' + website_url + '">' + '<h4 class="firstHeading">' + place['Name'] +               '</h4></a><hr>' +
+                '<div id="bodyContent">' +
                     '<ul>';
-      
+
       var factype = factype_display_names[type];
-      
+
       content += '<li> Type: <br /><img style="height: 30px; width: 30px;" src="assets/icons/' + factype_gif_images[type] + '" /> <strong>' + factype + '</strong> - <img src="assets/icons/' + factype_marker_images[type] + '" /></li><br />';
-      content += '<li> Address: <br /> <strong>' + place['Address'] + '</strong> - <a href="' + googleMapsSearchQuery(place['Address']) + '"> Directions </a></li><br />';
-      
+      content += '<li> Address: <br /> <strong>' + place['Address'] + '</strong> - <a target="_blank" href="' + googleMapsSearchQuery(place['Address']) + '"> Directions </a></li><br />';
+
+      if(type === "volunteer") {
+        content += '<li> Website: <br /><strong>' + place['URL'] + '</strong></li><br />';
+        content += '<li> Phone Number: <br /><strong>' + place['Phone'] + '</strong></li><br />';
+        content += '<li> Description: <br /><strong>' + place['Description'] + '</strong></li><br />';
+      }
       if (type === "clothing_charities" || type === "homeless_shelters" || type === "snap_centers") {
           content += '<li> Phone Number: <br /> <strong>' + place['Phone Number'] + '</strong></li><br />';
       }
-      
+
       if (type === "homeless_shelters" || type === "clothing_charities") {
           var website = place['Website'];
-          content += '<li> Website: <br /> <strong><a href="' + website + '">' + website + '</a></strong></li><br />';
+          content += '<li> Website: <br /> <strong><a target="_blank" href="' + website + '">' + website + '</a></strong></li><br />';
        }
-      
+
       if (type === "clothing_charities"){
           content += '<li> Hours: <br /> <strong>' + place['Hours'] + '</strong></li><br />';
       }
-      
-      
+
       if (type === "food_scraps") {
           var website = place['Website'];
-          content += '<li> Website: <br /> <strong><a href="' + website + '">' + website + '</a></strong></li><br />';
+          content += '<li> Website: <br /> <strong><a target="_blank" href="' + website + '">' + website + '</a></strong></li><br />';
           content += '<li> Open Months: <br /> <strong>' + place['MONTH_'] + '</strong></li><br />';
           content += '<li> Days Open: <br /> <strong>' + place['DAYS'] + '</strong></li><br />';
           content += '<li> Hours: <br /> <strong>' + place['STARTTIME'] + ' - ' + place['ENDTIME'] + '</strong></li><br />';
       }
-      
+
       content += '<li> Borough: <br /> <strong>' + place['Borough'] + '</strong></li><br />';
-      content += '<li> Zip Code: <br /> <strong>' + place['Zip Code'] + '</strong></li><br />'; 
-      
+      content += '<li> Zip Code: <br /> <strong>' + place['Zip Code'] + '</strong></li><br />';
+
       if (type === "food_pantries" || type === "soup_kitchens") {
           content += '<li> Council District: <br /> <strong>' + place['council district'] + '</strong></li><br />';
       }
-          
+
       content += '</ul>' +
                  '</div>' +
-                    '</div>' + 
+                    '</div>' +
                         '</span>';
-                        
+
       return content;
   }
 
@@ -147,7 +155,7 @@ $(function() {
     });
   });
   }
-    
+
   function displayCheckedItems(map) {
       $("input:checkbox:checked").each(function(box) {
         var id = $(this).attr("id");
@@ -172,7 +180,10 @@ $(function() {
         if(id === "clothing_charities_checkbox") {
           displayMarkers(map, 'clothing_charities', 'pink');
         }
-      }); 
+        if(id === "volunteer_checkbox") {
+          displayMarkers(map, 'volunteer', 'lightblue');
+        }
+      });
   }
 
   function handleSubmit(map) {
@@ -192,7 +203,7 @@ $(function() {
         }
       });
       map.removeMarkers();
-      displayCheckedItems(map);    
+      displayCheckedItems(map);
     });
   }
 
@@ -210,6 +221,7 @@ $(function() {
       displayMarkers(map, 'food_scraps', 'blue');
       displayMarkers(map, 'homeless_shelters', 'purple');
       displayMarkers(map, 'clothing_charities', 'pink');
+      displayMarkers(map, 'volunteer', 'lightblue');
       handleSubmit(map);
   }
 

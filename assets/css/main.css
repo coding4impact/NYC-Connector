@@ -26,11 +26,16 @@ html, body {
      left: 0;
      bottom: 0;
      background-color: skyblue;
-     opacity: 0.5;
+     opacity: 0.6;
 }
 #info_text {
     color: white;
     position: relative;
+}
+.lead {
+     line-height: 1.4em;
+     letter-spacing: .1em;
+     font-size: 1.4em;
 }
 #info_text h1 {
     font-size: 5em;
@@ -39,7 +44,7 @@ html, body {
      background-color: rgba(227, 242, 253, 0.4);
      height: 100%;
 }
- #main_nav {
+#main_nav {
      background-color: white;
 }
 #main_nav img {
@@ -57,7 +62,7 @@ html, body {
     background-color: white;
 }
 #find_resources h1 {
-    
+
 }
 #search {
     width: 100px;
@@ -74,18 +79,18 @@ html, body {
      border-top-right-radius: 5px;
      border-bottom-right-radius: 5px;
 }
-#panel { 
+#panel {
     border-top-left-radius: 5px;
     border-bottom-left-radius: 5px;
     border-top: 3px solid skyblue;
     border-left: 3px solid skyblue;
     border-bottom: 3px solid skyblue;
-    position:absolute; 
-    width:27%; 
+    position:absolute;
+    width:27%;
     height: 88vh;
     overflow-x: hidden;
     overflow-y: scroll;
-    margin-left: 1%; 
+    margin-left: 1%;
     font-size: .8em;
     background-color: whitesmoke;
 }
@@ -93,15 +98,13 @@ html, body {
      width: 50%;
      margin: auto;
 }
- .lead {
-     line-height: 1.4em;
-     letter-spacing: .1em;
-     font-size: 1.4em;
-}
  #images .rounded-circle {
-     height: 110px;
-     width: 110px;
+     height: 100px;
+     width: 100px;
      border: 2px solid black;
+}
+#images figcaption {
+    font-size: .9em;
 }
  .row {
      text-align: center;
@@ -109,7 +112,7 @@ html, body {
      padding-left: 10%;
 }
  .row .icon-group {
-     margin: 0 auto;
+     margin: auto;
 }
 .firstHeading {
      font-weight: bold;
@@ -147,6 +150,9 @@ a, a:visited, a:hover {
 }
 .purple-color, .purple-color a {
     color: purple;
+}
+.lightblue-color, .lightblue-color a {
+    color: lightblue;
 }
 .soup_kitchens_background {
     background-color: orange;
